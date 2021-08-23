@@ -12,16 +12,16 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send(`
-  /mentors/ - to view all the mentors \n
-  /mentors/create - to create new mentor
-  /mentors/assign?students=s1,s2&mentor=m1 - to assign students s1 and s2 to mentor m1
-  /mentors/students/m1 - to view the students of mentor m1
+  res.send({
+    "/mentors/": "to view all the mentors",
+    "/mentors/create": "to create new mentor",
+    "/mentors/assign?students=s1,s2&mentor=m1": "to assign students s1 and s2 to mentor m1",
+    "/mentors/students/m1": "to view the students of mentor m1",
 
-  /students/ - to view all the students
-  /studetns/create - to create new student 
-  /students/assign?student=s1&mentor=m2 - to change the mentor of student s1 to mentor m2
-  `);
+    "/students/": "to view all the students",
+    "/studetns/create": "to create new student",
+    "/students/assign?student=s1&mentor=m2": "to change the mentor of student s1 to mentor m2",
+  });
 });
 
 app.use("/mentors", mentorRouter);
